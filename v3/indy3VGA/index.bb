@@ -38,10 +38,10 @@ index = ReadFile("00.LFL")
 	keep = ReadShort(index) - 1: AddTextAreaText area, "Anzahl ["+(keep+1)+"]" +Chr$(10)
 	For i = 0 To keep
 		AddTextAreaText area, "Obj["+i+"]  class$["+RSet$(Hex$(ReadByte(index)+ReadByte(index) Shl 8+ReadByte(index) Shl 16), 6)
-		;																			^Bytes zu LitteEndian konvertieren
+		;                                                      ^Bytes zu LitteEndian konvertieren
 		ownerState = ReadByte(index)
 		AddTextAreaText area, "]  owner["+(ownerState And $0F)+"]  state["+(ownerState Shr 4)+"]" +Chr$(10)
-		;                      owner=Nibble 2                   state=Nibble 1
+		;                         owner=Nibble 2                   state=Nibble 1
 	Next
 CloseFile index
 
