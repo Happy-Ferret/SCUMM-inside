@@ -11,7 +11,7 @@ Repeat
 Forever
 
 .load
-	file$ = RequestFile("(00/98/99 sind keine Raumdateien!)", "LFL")
+	file$ = RequestFile("00/98/99 sind keine Raumdateien!", "LFL")
 	If file$ = "" Then Return
 
 	pal = ReadFile(file$)
@@ -25,7 +25,7 @@ Forever
 		For i = 0 To 255
 			r = ReadByte(pal): g = ReadByte(pal): b = ReadByte(pal)
 			AddTextAreaText area, Chr$(263)+ "   Farbe ["+i+"]   RGB ["+r+" - "+g+" - "+b+"]" +Chr$(10)
-			FormatTextAreaText area, r, g, b, 1, TextAreaChar(area, i), 1 ;erstes Zeichen einf‰rben
+			FormatTextAreaText area, r, g, b, 1, TextAreaChar(area, i), 1 ;Erstes Zeichen einf√§rben
 		Next
 	CloseFile pal
 Return
