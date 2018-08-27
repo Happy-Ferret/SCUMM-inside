@@ -9,8 +9,8 @@ index = ReadFile("00.LFL")
 	AddTextAreaText area, "Block ["+Chr$(ReadByte(index))+Chr$(ReadByte(index))+"]" +Chr$(10)
 	keep = ReadShort(index) - 1: AddTextAreaText area, "Anzahl ["+(keep+1)+"]" +Chr$(10)
 	For i = 0 To keep
-		AddTextAreaText area, "Raum["+i+"]  Disk["+ReadByte(index)+"]  Off[0]" +Chr$(10)
-		ReadInt(index) ;C64 Daten (Offset immer 0)
+		AddTextAreaText area, "Raum["+i+"]  Disk["+(ReadByte(index) And $0F)+"]  Off[0]" +Chr$(10)
+		ReadInt(index) ;C64 Daten (Offset immer 0)                  ^ASCII
 	Next
 
 	ReadInt(index)
@@ -31,7 +31,7 @@ index = ReadFile("00.LFL")
 	AddTextAreaText area, Chr$(10)+ "Block ["+Chr$(ReadByte(index))+Chr$(ReadByte(index))+"]" +Chr$(10)
 	keep = ReadShort(index) - 1: AddTextAreaText area, "Anzahl ["+(keep+1)+"]" +Chr$(10)
 	For i = 0 To keep
-		AddTextAreaText area, "Kostüm["+i+"]  Raum["+ReadByte(index)+"]  Off["+ReadInt(index)+"]" +Chr$(10)
+		AddTextAreaText area, "KostÃ¼m["+i+"]  Raum["+ReadByte(index)+"]  Off["+ReadInt(index)+"]" +Chr$(10)
 	Next
 
 	ReadInt(index)
