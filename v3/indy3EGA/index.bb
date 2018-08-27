@@ -17,21 +17,21 @@ index = ReadFile("00.LFL")
 	Next
 
 	keep = (ReadByte(index) Xor $FF) - 1
-	AddTextAreaText area, Chr$(10)+ "Anzahl der Räume ["+(keep+1)+"]" +Chr$(10)
+	AddTextAreaText area, Chr$(10)+ "Anzahl der RÃ¤ume ["+(keep+1)+"]" +Chr$(10)
 	For i = 0 To keep
-		file[i] = ReadByte(index): If file[i] Then file[i] = (file[i] Xor $FF) And $0F
+		file[i] = ReadByte(index): If file[i] Then file[i] = (file[i] Xor $FF) And $0F ;ASCII
 		AddTextAreaText area, "Raum["+i+"]  Disk["+file[i]+"]  Off[0]" +Chr$(10)
 	Next
 	SeekFile(index, FilePos(index)+keep*2+2) ;C64 Daten (Offset immer 0)
 
 	keep = (ReadByte(index) Xor $FF) - 1
-	AddTextAreaText area, Chr$(10)+ "Anzahl der Kostüme ["+(keep+1)+"]" +Chr$(10)
+	AddTextAreaText area, Chr$(10)+ "Anzahl der KostÃ¼me ["+(keep+1)+"]" +Chr$(10)
 	For i = 0 To keep
 		file[i] = ReadByte(index): If file[i] Then file[i] = file[i] Xor $FF
 	Next
 	For i = 0 To keep
 		off = ReadShort(index): If off Then off = off Xor $FFFF
-		AddTextAreaText area, "Kostüm["+i+"]  Raum["+file[i]+"]  Off["+off+"]" +Chr$(10)
+		AddTextAreaText area, "KostÃ¼m["+i+"]  Raum["+file[i]+"]  Off["+off+"]" +Chr$(10)
 	Next
 	
 	keep = (ReadByte(index) Xor $FF) - 1
