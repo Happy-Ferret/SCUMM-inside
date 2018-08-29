@@ -30,7 +30,7 @@ Forever
 			OLx = (ReadByte(boxmatrix) Xor $FF) * 8: ORx = (ReadByte(boxmatrix) Xor $FF) * 8
 			ULx = (ReadByte(boxmatrix) Xor $FF) * 8: URx = (ReadByte(boxmatrix) Xor $FF) * 8
 			;^ * = Nach C64 Standard
-      	Line OLx, Oy, ORx, Oy: Line ULx, Uy, URx, Uy
+			Line OLx, Oy, ORx, Oy: Line ULx, Uy, URx, Uy
 			Line OLx, Oy, ULx, Uy: Line ORx, Oy, URx, Uy
 			AddTextAreaText boxArea, "Box["+i+"]  OL["+OLx+" x "+Oy+"]  OR["+ORx+" x "+Oy+"]" +Chr$(10)
 			AddTextAreaText boxArea, "            UR["+URx+" x "+Uy+"]  UL["+ULx+" x "+Uy+"]" +Chr$(10)
